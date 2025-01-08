@@ -52,7 +52,7 @@ func SendNodeStatusHandler() {
 
         fmt.Println("Enviando o seguinte status:", string(statusJSON))
 
-        endpoint := "https://home.picloud.pt/api/node/status/update" 
+        endpoint := "http://host.docker.internal:8080/node/status/update"
         resp, err := http.Post(endpoint, "application/json", bytes.NewBuffer(statusJSON))
         if err != nil {
             fmt.Println("Erro ao enviar o status:", err)
