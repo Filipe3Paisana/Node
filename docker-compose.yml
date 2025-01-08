@@ -10,19 +10,6 @@ services:
     networks:
       - pi_network
   
-  data_collector:
-    build:
-      context: ./data_collector
-      dockerfile: Dockerfile
-    container_name: data_collector
-    volumes:
-      - ./data_collector/prometheus_data:/app/prometheus_data
-    ports:
-      - "8001:8001" 
-    networks:
-      - pi_network
-    environment:
-      - PROMETHEUS_URL=http://prometheus:9090  # Variável de ambiente para o endereço do Prometheus
 
   node1:
     build:
